@@ -19,7 +19,7 @@ page '/*.txt', layout: false
 ###
 # Helpers
 ###
-blog.sources = "posts/:year-:title.html"
+
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
@@ -39,6 +39,7 @@ activate :blog do |blog|
 
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
+  blog.sources = "posts/:year-:title.html"
 
   # Enable pagination
   # blog.paginate = true
@@ -58,9 +59,15 @@ end
 #     "Helping"
 #   end
 # end
+activate :deploy do |deploy|
+  deploy.deploy_method = :git
+  deploy.branch = 'gh-pages'
+  deploy.build_before = true
+end
 
 # Build-specific configuration
 configure :build do
+  activate :relative_assets
   # Minify CSS on build
   # activate :minify_css
 
