@@ -19,6 +19,7 @@ page '/*.txt', layout: false
 ###
 # Helpers
 ###
+blog.sources = "posts/:year-:title.html"
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
