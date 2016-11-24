@@ -70,6 +70,6 @@ configure :build do
   activate :relative_assets
   activate :asset_hash
   activate :gzip
-  activate :css
+  activate :minify_css
   activate :minify_javascript
 end
